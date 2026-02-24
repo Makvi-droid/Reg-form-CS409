@@ -5,35 +5,46 @@ function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const menuItems = [
-    { name: "Dashboard", path: "/", iconClass: "fas fa-chart-pie" },
-    { name: "Users", path: "/about", iconClass: "fas fa-users" },
-    { name: "Services", path: "/service", iconClass: "fas fa-briefcase" },
-    { name: "Register", path: "/register", iconClass: "fas fa-cogs" },
-  ];
+  const isActive = (path) =>
+    location.pathname === path ? styles.activeButton : "";
 
   return (
     <nav className={styles.sidebar}>
       <div className={styles.navGroup}>
-        {menuItems.map((item) => (
-          <button
-            key={item.path}
-            onClick={() => navigate(item.path)}
-            className={`${styles.navButton} ${
-              location.pathname === item.path ? styles.activeButton : ""
-            }`}
-          >
-            {/* Font Awesome icon from your index.html CDN */}
-            <i className={`${item.iconClass} ${styles.icon}`}></i>
-            <span className={styles.navText}>{item.name}</span>
-          </button>
-        ))}
-      </div>
+        {/* Home Button */}
+        <button
+          onClick={() => navigate("/")}
+          className={`${styles.navButton} ${isActive("/")}`}
+        >
+          <i class={`fa-solid fa-house ${styles.icon}`}></i>
+          <span className={styles.navText}>Home</span>
+        </button>
 
-      <div className={styles.logoutSection}>
-        <button className={styles.navButton} onClick={() => navigate("/login")}>
-          <i className={`fas fa-sign-out-alt ${styles.icon}`}></i>
-          <span className={styles.navText}>Logout</span>
+        {/* About Button */}
+        <button
+          onClick={() => navigate("/about")}
+          className={`${styles.navButton} ${isActive("/about")}`}
+        >
+          <i className={`fas fa-users ${styles.icon}`}></i>
+          <span className={styles.navText}>About</span>
+        </button>
+
+        {/* Services Button */}
+        <button
+          onClick={() => navigate("/service")}
+          className={`${styles.navButton} ${isActive("/service")}`}
+        >
+          <i className={`fas fa-briefcase ${styles.icon}`}></i>
+          <span className={styles.navText}>Services</span>
+        </button>
+
+        {/* Register Button */}
+        <button
+          onClick={() => navigate("/register")}
+          className={`${styles.navButton} ${isActive("/register")}`}
+        >
+          <i className={`fas fa-user-plus ${styles.icon}`}></i>
+          <span className={styles.navText}>Register</span>
         </button>
       </div>
     </nav>

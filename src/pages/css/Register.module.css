@@ -1,0 +1,358 @@
+/* Register.module.css */
+
+:root {
+  --primary-color: #6c5ce7;
+  --primary-hover: #5649c0;
+  --bg-gradient: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
+  --error-color: #ff4757;
+  --success-color: #2ed573;
+  --font-main: "Poppins", sans-serif;
+}
+
+.mainWrapper {
+  font-family: var(--font-main);
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.formContainer {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+.formHeader {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.formHeader h1 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.formHeader p {
+  color: #777;
+  font-size: 14px;
+}
+
+.regform {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 15px;
+}
+
+.span2 {
+  grid-column: span 2;
+}
+
+.submitBtn {
+  grid-column: span 2;
+}
+
+/* --- INPUT & CONTAINER --- */
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.inputContainer input,
+.inputContainer select {
+  width: 100%;
+  padding: 12px 40px 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-size: 14px;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* --- ICONS --- */
+.inputIcon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: #aaa;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+/* --- FOCUS EFFECTS --- */
+.inputContainer input:focus,
+.inputContainer select:focus {
+  border-color: #6c5ce7;
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.1);
+}
+
+/* Hide icon on focus */
+.inputContainer input:focus + .inputIcon,
+.inputContainer select:focus + .inputIcon {
+  opacity: 0;
+  transform: translateX(10px);
+}
+
+/* --- VALIDATION MESSAGES --- */
+.errorMsg,
+.successMsg {
+  font-size: 11px;
+  margin-top: 5px;
+  font-weight: 500;
+  display: none;
+  font-family: var(--font-main);
+}
+
+.errorMsg {
+  color: #ff4757;
+}
+
+.successMsg {
+  color: #2ed573;
+}
+
+/* Error State */
+.inputContainer.error input,
+.inputContainer.error select {
+  border-color: #ff4757;
+  background-color: #fff0f0;
+}
+
+.inputContainer.error .inputIcon {
+  color: #ff4757;
+}
+
+.inputContainer.error .errorMsg {
+  display: block;
+}
+
+/* Success State */
+.inputContainer.success input,
+.inputContainer.success select {
+  border-color: #2ed573;
+}
+
+.inputContainer.success .inputIcon {
+  color: #2ed573;
+}
+
+.inputContainer.success .successMsg {
+  display: block;
+}
+
+/* --- TERMS --- */
+.termsContainer {
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.termsContainer input[type="checkbox"] {
+  width: auto;
+  margin-right: 10px;
+  box-shadow: none;
+  padding: 0;
+}
+
+.termsContainer label {
+  font-size: 13px;
+  color: #555;
+  cursor: pointer;
+  font-family: var(--font-main);
+}
+
+.termsContainer label a {
+  color: #6c5ce7;
+  text-decoration: none;
+}
+
+.termsContainer .errorMsg {
+  width: 100%;
+  margin-left: 0;
+}
+
+.termsContainer.error label {
+  color: #ff4757;
+}
+
+/* --- SUBMIT BUTTON --- */
+.submitBtn {
+  padding: 14px;
+  background-color: #6c5ce7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    transform 0.2s;
+  margin-top: 10px;
+  font-family: var(--font-main);
+}
+
+.submitBtn:hover {
+  background-color: #5649c0;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+}
+
+.submitBtn:active {
+  transform: scale(0.98);
+}
+
+/* --- MODAL OVERLAY --- */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modalOverlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modalBox {
+  background: white;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: none;
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
+
+.modalOverlay.active .modalBox.active {
+  display: block;
+  transform: translateY(0);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.modalHeader h3 {
+  color: #333;
+  font-family: var(--font-main);
+}
+
+.closeModal {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #999;
+}
+
+.modalBody {
+  margin-bottom: 20px;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: var(--font-main);
+}
+
+.summaryList {
+  list-style: none;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.summaryList li {
+  margin-bottom: 8px;
+  font-size: 13px;
+  border-bottom: 1px solid #eef;
+  padding-bottom: 5px;
+  font-family: var(--font-main);
+}
+
+.summaryList li strong {
+  color: #6c5ce7;
+  width: 100px;
+  display: inline-block;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.centerContent {
+  text-align: center;
+  justify-content: center;
+}
+
+.successIconLarge {
+  font-size: 50px;
+  color: #2ed573;
+  margin-bottom: 10px;
+}
+
+.modalBody h3 {
+  font-family: var(--font-main);
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.btnPrimary {
+  background: #6c5ce7;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-main);
+}
+
+.btnSecondary {
+  background: #eee;
+  color: #555;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-main);
+}
+
+.btnPrimary:hover {
+  background: #5649c0;
+}
+
+.btnSecondary:hover {
+  background: #ddd;
+}
