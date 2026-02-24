@@ -9,7 +9,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  box-sizing: border-box; /* Ensures padding doesn't break width */
+  box-sizing: border-box;
 }
 
 .navGroup {
@@ -37,7 +37,6 @@
   color: #38bdf8;
 }
 
-/* Icon specific width to keep text aligned vertically */
 .icon {
   width: 25px;
   font-size: 1.1rem;
