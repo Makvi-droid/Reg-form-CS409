@@ -1,0 +1,65 @@
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background-color: #0f172a;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 16px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+.navGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  padding: 14px 18px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+  text-align: left;
+}
+
+.navButton:hover {
+  background-color: #1e293b;
+  color: #38bdf8;
+}
+
+/* Icon specific width to keep text aligned vertically */
+.icon {
+  width: 25px;
+  font-size: 1.1rem;
+}
+
+.navText {
+  margin-left: 12px;
+}
+
+/* Active Page Highlight */
+.activeButton {
+  background-color: #38bdf8;
+  color: #0f172a !important;
+  font-weight: 600;
+}
+
+.activeButton .icon {
+  color: #0f172a;
+}
+
+.logoutSection {
+  margin-top: auto;
+  border-top: 1px solid #1e293b;
+  padding-top: 15px;
+}
