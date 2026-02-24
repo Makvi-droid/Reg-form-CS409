@@ -89,7 +89,7 @@ export default function About() {
   const tabs = [
     { id: "story", label: "story.log", icon: "fas fa-book-open" },
     { id: "skills", label: "skills.sh", icon: "fas fa-code" },
-    { id: "timeline", label: "timeline.txt", icon: "fas fa-history" },
+
     { id: "misc", label: "misc.json", icon: "fas fa-puzzle-piece" },
   ];
 
@@ -258,66 +258,6 @@ export default function About() {
               ].map((tool) => (
                 <div key={tool.name} className={styles.toolChip}>
                   <i className={tool.icon} /> {tool.name}
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* ── TAB: TIMELINE ── */}
-        {activeTab === "timeline" && (
-          <div className={styles.tabContent}>
-            <div className={styles.timeline}>
-              {[
-                {
-                  year: "2024 — present",
-                  icon: "fas fa-rocket",
-                  title: "Freelance Developer",
-                  sub: "Self-employed",
-                  desc: "Building custom web apps and UI systems for clients across various industries. Specializing in React frontends and clean, maintainable codebases.",
-                },
-                {
-                  year: "2023",
-                  icon: "fas fa-briefcase",
-                  title: "Junior Frontend Developer",
-                  sub: "Some Cool Company",
-                  desc: "Joined a small product team, shipping features weekly. Learned to love code reviews, design systems, and standing desks.",
-                },
-                {
-                  year: "2022",
-                  icon: "fas fa-graduation-cap",
-                  title: "B.S. Computer Science",
-                  sub: "Your University",
-                  desc: "Graduated with honors. Thesis on progressive web applications. Also co-founded the university's web dev club.",
-                },
-                {
-                  year: "2021",
-                  icon: "fas fa-flask",
-                  title: "Internship — Web Developer",
-                  sub: "Tech Startup Co.",
-                  desc: "First real-world dev experience. Rebuilt their landing page, improved load time by 40%, and discovered that coffee is non-optional.",
-                },
-                {
-                  year: "2018",
-                  icon: "fas fa-lightbulb",
-                  title: "First Side Project Shipped",
-                  sub: "Personal",
-                  desc: "Launched a small productivity tool that exactly 12 people used — including my mom. Counted it as a win.",
-                },
-              ].map((item, i) => (
-                <div key={i} className={styles.timelineItem}>
-                  <div className={styles.timelineLeft}>
-                    <span className={styles.timelineYear}>{item.year}</span>
-                    <div className={styles.timelineLine} />
-                  </div>
-                  <div className={styles.timelineNode}>
-                    <i className={item.icon} />
-                  </div>
-                  <div className={styles.timelineRight}>
-                    <p className={styles.timelineTitle}>{item.title}</p>
-                    <p className={styles.timelineSub}>{item.sub}</p>
-                    <p className={styles.timelineDesc}>{item.desc}</p>
-                  </div>
                 </div>
               ))}
             </div>
