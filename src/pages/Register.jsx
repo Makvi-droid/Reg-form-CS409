@@ -1,8 +1,6 @@
 import { useState } from "react";
 
-// Inline styles to avoid CSS module issues
 const S = {
-  // Global
   "@import":
     "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap",
 

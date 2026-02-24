@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./css/About.module.css";
 
-/* ── Reusable animated section that fades in on mount ── */
 function TerminalBlock({ delay = 0, children }) {
   const [visible, setVisible] = useState(false);
   const ref = useRef(null);
